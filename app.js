@@ -8,15 +8,7 @@ expressWs(app);
 // Serve static files from the "public" directory
 app.use(express.static('static'));
 
-// app.get('/', (req, res) => {
-//   res.sendFile(__dirname + '/static/change_color.html');
-// })
 
-// // Import the router module
-// const router = require('./router');
-
-// // Use the router for a specific URL prefix
-// app.use('/pages', router);
 
 const clientConnections = [];
 
