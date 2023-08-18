@@ -8,6 +8,9 @@ expressWs(app);
 // Serve static files from the "public" directory
 app.use(express.static("static"));
 
+const mapRouter = require("./dig_map");
+app.use("/map", mapRouter);
+
 const clientConnections = [];
 
 // WebSocket route for communication with ESP8266
