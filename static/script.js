@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     select.innerHTML = "Route selected";
   }
-  
+
   port1.addEventListener("click", () => {
     choosePlace("port1");
   });
@@ -96,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
   changeColorButton.addEventListener("click", () => {
     const selectedLed = ledSelect.value;
     const selectedColor = colorSelect.value;
+    console.log("lol");
     sendColorChange(selectedLed, selectedColor); 
   });
 

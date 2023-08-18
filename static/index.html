@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeoPixel Color Control</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -34,7 +37,8 @@
             font-weight: bold;
         }
 
-        select, button {
+        select,
+        button {
             padding: 10px;
             font-size: 16px;
             border: 1px solid #ccc;
@@ -55,7 +59,14 @@
         }
     </style>
 </head>
+
 <body>
+    <nav>
+        <ul>
+            <li><a href="/pages/change_color">Change Color</a></li>
+            <li><a href="/pages/dig_map">Digital Map</a></li>
+        </ul>
+    </nav>
     <div class="container">
         <h1>NeoPixel Color Control</h1>
         <label for="ledSelect">Select LED:</label>
@@ -76,4 +87,5 @@
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
