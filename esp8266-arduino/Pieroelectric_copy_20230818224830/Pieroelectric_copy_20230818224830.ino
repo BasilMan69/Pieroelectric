@@ -18,9 +18,10 @@ const char* password = "66668888";
 // #define PIN            D1   // Define the pin where the Neopixel data line is connected
 #define NUMPIXELS      12   // Define the number of Neopixels in your LED ring
 
-Adafruit_NeoPixel strips[3] = {
+Adafruit_NeoPixel strips[4] = {
   Adafruit_NeoPixel(NUMPIXELS, D1, NEO_GRB + NEO_KHZ800),
   Adafruit_NeoPixel(NUMPIXELS, D2, NEO_GRB + NEO_KHZ800),
+  Adafruit_NeoPixel(NUMPIXELS, D3, NEO_GRB + NEO_KHZ800),
   Adafruit_NeoPixel(NUMPIXELS, D4, NEO_GRB + NEO_KHZ800)
 };
 
