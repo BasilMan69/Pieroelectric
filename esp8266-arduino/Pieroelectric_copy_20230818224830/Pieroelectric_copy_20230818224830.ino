@@ -1,5 +1,4 @@
 #include <Adafruit_NeoPixel.h>
-
 #include <Arduino.h>
 #include <ArduinoJson.h>
 #include <ESP8266WiFi.h>
@@ -38,7 +37,7 @@ void setupWiFi() {
 
 void setupWebSocket() {
   Serial.println("[SETUP] Initializing WebSocket...");
-  webSocket.begin("192.168.94.94", 81, "/ws"); // Replace with your server IP and port
+  webSocket.begin("192.168.0.102", 81, "/ws"); // Replace with your server IP and port
   webSocket.onEvent(webSocketEvent);
 }
 
@@ -63,7 +62,15 @@ void loop() {
 
 }
 
-void changeNeoPixelColor(int ledId, int colorId, int wait) {
+void changeNeoPixelColor(int ledId, int colorId) {
+  if (colorId == 0){
+    for (int i = 0; i < NUMPIXELS; i++) {
+      strips[ledId - 1].setPixelColor(i, 0);
+    }
+    strips[ledId - 1].show();
+    return;
+  }
+
   uint32_t colorRGB;
   switch (colorId) {
     case 1:
@@ -84,11 +91,6 @@ void changeNeoPixelColor(int ledId, int colorId, int wait) {
 
   for (int i = 0; i < NUMPIXELS; i++) {
     strips[ledId - 1].setPixelColor(i, colorRGB);
-  }
-  strips[ledId - 1].show();
-  delay(wait);
-  for (int i = 0; i < NUMPIXELS; i++) {
-    strips[ledId - 1].setPixelColor(i, 0);
   }
   strips[ledId - 1].show();
 }
@@ -116,7 +118,7 @@ void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
       Serial.print(ledId);
       Serial.print(", Color: ");
       Serial.println(color);
-      changeNeoPixelColor(ledId, color, 3000);
+      changeNeoPixelColor(ledId, color);
       
       // Process the received message and change NeoPixel color if needed
       break;
